@@ -56,7 +56,7 @@ export default function Routes() {
                     />
                     <RouteWrapper
                         exact={true}
-                        path="/landing"
+                        path="/landing/:id"
                         component={Landing}
                         layout={Layout}
                     />

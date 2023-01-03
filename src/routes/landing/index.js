@@ -7,6 +7,8 @@ import ClientSection from './clientSection';
 import TextSection from './textSection';
 import FinanceGmbh from './financeGmbh';
 import JetztSection from './jetztSection/index,';
+
+
 export default function Landing() {
     useEffect(() => {
         window.scrollTo({
