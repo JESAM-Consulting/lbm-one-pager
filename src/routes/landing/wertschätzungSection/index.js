@@ -25,14 +25,15 @@ export default function WertschätzungSection() {
     setTeamData({ ...teamData, [name]: value });
     setErrors({ ...errors, [name]: "" });
   };
+  console.log("teamDatateamData",teamData);
 
   const formValidation = () => {
     let formvalied = true;
     let errors = {};
-    // if (!teamData?.salutation) {
-    //   formvalied = false;
-    //   errors["salutation"] = "*Bitte überprüfen Sie ihre Eingabe";
-    // }
+    if (!teamData?.salutation) {
+      formvalied = false;
+      errors["salutation"] = "*Bitte überprüfen Sie ihre Eingabe";
+    }
     if (!teamData?.fullName?.trim()) {
       formvalied = false;
       errors["fullName"] = "*Bitte überprüfen Sie ihre Eingabe";
@@ -86,6 +87,16 @@ export default function WertschätzungSection() {
         });
     }
   };
+  const bindInput = (value) => {
+    var regex = new RegExp("^[^0-9]*$");
+    var key = String.fromCharCode(
+      !value.charCode ? value.which : value.charCode
+    );
+    if (regex.test(key)) {
+      value.preventDefault();
+      return false;
+    }
+  };
   return (
     <div>
       <ToastContainer />
@@ -118,9 +129,19 @@ export default function WertschätzungSection() {
                       defaultValue={teamData?.salutation}
                       name="salutation"
                     >
-                      <option value="mr.">Mr</option>
+                      <option selected disabled>Anrede</option>
+                      <option value="mr">Mr</option>
                       <option value="mrs">Mrs.</option>
                     </select>
+                    <span
+                      style={{
+                        color: "red",
+                        top: "5px",
+                        fontSize: "12px",
+                      }}
+                    >
+                      {errors["salutation"]}
+                    </span>
                   </div>
                   <div className="input">
                     <label>Vor- Nachname</label>
@@ -167,13 +188,14 @@ export default function WertschätzungSection() {
                   <div className="input">
                     <label>Telefonnummer</label>
                     <input
-                      type="number"
+                      type="text"
                       id="phone"
                       name="phone"
                       value={teamData?.phone}
                       onChange={(e) => {
                         onhandleChange(e);
                       }}
+                      onKeyPress={bindInput}
                     />
                     <span
                       style={{
@@ -188,13 +210,15 @@ export default function WertschätzungSection() {
                   <div className="input">
                     <label>Postleitzahl</label>
                     <input
-                      type="number"
+                      type="text"
                       id="postalCode"
                       name="postalCode"
+                      maxLength={5}
                       value={teamData?.postalCode}
                       onChange={(e) => {
                         onhandleChange(e);
                       }}
+                      onKeyPress={bindInput}
                     />
                     <span
                       style={{
