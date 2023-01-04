@@ -29,10 +29,10 @@ export default function WertschätzungSection() {
   const formValidation = () => {
     let formvalied = true;
     let errors = {};
-    if (!teamData?.salutation) {
-      formvalied = false;
-      errors["salutation"] = "*Bitte überprüfen Sie ihre Eingabe";
-    }
+    // if (!teamData?.salutation) {
+    //   formvalied = false;
+    //   errors["salutation"] = "*Bitte überprüfen Sie ihre Eingabe";
+    // }
     if (!teamData?.fullName?.trim()) {
       formvalied = false;
       errors["fullName"] = "*Bitte überprüfen Sie ihre Eingabe";
