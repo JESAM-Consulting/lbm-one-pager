@@ -9,14 +9,14 @@ import DinIcon from "../../../assets/icons/din.svg";
 import { NavLink, useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { ApiPost } from "../../../helpers/API/ApiData";
-// import { toast, ToastContainer } from "react-toastify";
-// import 'react-toastify/dist/ReactToastify.css';
-// import { toHaveStyle } from "@testing-library/jest-dom/dist/matchers";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function WertschätzungSection() {
   const [teamData, setTeamData] = useState({});
   const [errors, setErrors] = useState({});
-const history = useHistory()
+  const [checkTrems, setCheckTerms] = useState(false);
+  const history = useHistory();
   let { id } = useParams();
   console.log(id, "useparams@@@");
   const onhandleChange = (e) => {
@@ -29,6 +29,10 @@ const history = useHistory()
   const formValidation = () => {
     let formvalied = true;
     let errors = {};
+    if (!teamData?.salutation) {
+      formvalied = false;
+      errors["salutation"] = "*Bitte überprüfen Sie ihre Eingabe";
+    }
     if (!teamData?.fullName?.trim()) {
       formvalied = false;
       errors["fullName"] = "*Bitte überprüfen Sie ihre Eingabe";
@@ -45,6 +49,10 @@ const history = useHistory()
       formvalied = false;
       errors["postalCode"] = "*Bitte überprüfen Sie ihre Eingabe";
     }
+    if (checkTrems === false) {
+      formvalied = false;
+      errors["check"] = "*Bitte überprüfen Sie ihre Eingabe";
+    }
     setErrors(errors);
     return formvalied;
   };
@@ -57,7 +65,7 @@ const history = useHistory()
         telephone: id === "value3" ? true : false,
         like: id === "value4" ? true : false,
         calander: id === "value5" ? true : false,
-    angry: id === "value6" ? true : false,
+        angry: id === "value6" ? true : false,
         salutation: teamData?.salutation,
         fullName: teamData?.fullName,
         email: teamData?.email,
@@ -66,17 +74,21 @@ const history = useHistory()
       };
       ApiPost(`create-reason`, data)
         .then((res) => {
-        //   toast.success("success")
-        history.push("/details-page")
+          toast.success(
+            "Vielen Dank, Ihre Daten wurden erfolgreich eingereicht."
+          );
+          setTimeout(() => {
+            history.push("/details-page");
+          }, 1200);
         })
         .catch((err) => {
-          console.log("err");
+          toast.error("Etwas ist schief gelaufen. Bitte versuche es erneut");
         });
     }
   };
   return (
     <div>
-      {/* <ToastContainer/> */}
+      <ToastContainer />
       <div className="wertschätzung-section-all-content-alignment">
         <div className="container">
           <div className="box">
@@ -196,7 +208,13 @@ const history = useHistory()
                   </div>
                   <div className="checkbox-all-content-alignment">
                     <div className="relativ-div">
-                      <input type="checkbox" id="id" />
+                      <input
+                        type="checkbox"
+                        name="check"
+                        id="id"
+                        checked={checkTrems}
+                        onChange={(e) => setCheckTerms(e.target.checked)}
+                      />
                       <label htmlFor="id"></label>
                     </div>
                     <div className="relativ-div">
@@ -206,11 +224,16 @@ const history = useHistory()
                       </span>
                     </div>
                   </div>
+                  {checkTrems === false && (
+                    <span style={{ color: "#d92c2c", fontSize: "12px" }}>
+                      {errors?.check}
+                    </span>
+                  )}
                   <div className="button-design">
                     {/* <NavLink to="/details-page"> */}
-                      <button onClick={(e) => handleSubmitForm(e)}>
-                        Bewerbung absenden
-                      </button> 
+                    <button onClick={(e) => handleSubmitForm(e)}>
+                      Bewerbung absenden
+                    </button>
                     {/* </NavLink> */}
                   </div>
                 </div>
