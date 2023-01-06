@@ -22,6 +22,7 @@
         @include breakpoint("max-xl") {
             padding: 4px 0 20px 0;
         }
+
         span {
             display: block;
             font-weight: 400;
@@ -34,14 +35,23 @@
 
         h6 {
             font-weight: 600;
-font-size: 24px;
-line-height: 32px;
-text-align: center;
-font-family: "VisbyCF-Medium";
+            font-size: 24px;
+            line-height: 32px;
+            text-align: center;
+            font-family: "VisbyCF-Medium";
 
-color: #000000;
-max-width: 882px;
+            color: #000000;
+            max-width: 882px;
+
+            @include breakpoint("max-sm") {
+                font-weight: 700;
+font-size: 14px;
+max-width: 310px;
+margin: 0 auto;
+line-height: 21px;
+            }
         }
+
         p {
             font-weight: 400;
             font-size: 20px;
@@ -57,6 +67,7 @@ max-width: 882px;
         align-items: center;
         justify-content: center;
         gap: 6px;
+
         img {
             cursor: pointer;
         }
