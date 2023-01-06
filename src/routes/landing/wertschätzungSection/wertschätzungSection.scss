@@ -38,11 +38,39 @@
                 }
             }
 
+            .mobile-view-information-set {
+                display: none;
+
+                @include breakpoint("max-sm") {
+                    display: block;
+                }
+
+                p {
+                    font-weight: 500;
+                    font-size: 13px;
+                    line-height: 16px;
+                    text-align: center;
+                    margin: 0 0 16px 0;
+                    color: #000000;
+                }
+
+                .information-arrow-design {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 0 16px 0;
+                    justify-content: center;
+
+                    img {
+                        cursor: pointer;
+                    }
+                }
+            }
+
             .button-design {
                 padding: 30px 0 0 0;
 
                 @include breakpoint("max-sm") {
-                    padding: 10px 0 70px 0;
+                    padding: 10px 0 16px 0;
                 }
 
                 button {
