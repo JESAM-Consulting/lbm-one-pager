@@ -130,8 +130,8 @@ export default function WertschätzungSection() {
                       name="salutation"
                     >
                       <option selected disabled>Anrede</option>
-                      <option value="mr">Mr</option>
-                      <option value="mrs">Mrs.</option>
+                      <option value="mr">Herr</option>
+                      <option value="mrs">Frau</option>
                     </select>
                     <span
                       style={{
