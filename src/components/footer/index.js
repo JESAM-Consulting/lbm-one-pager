@@ -2,6 +2,7 @@ import React from 'react'
 import './footer.scss';
 import ClockIcon from '../../assets/icons/clock.svg'
 import XmldIcon from '../../assets/icons/xmld.svg'
+import { NavLink } from 'react-router-dom';
 export default function Footer() {
   return (
     <div>
@@ -30,8 +31,8 @@ export default function Footer() {
                     </div>    
                 </div> 
                 <div className='last-text'>
-                    <a>Impressum</a>                    
-                    <a>Datenschutz</a>                    
+                    <NavLink to="/impressum">Impressum</NavLink>                    
+                    <NavLink to="/datenschutz">Datenschutz</NavLink>                    
                 </div>   
             </div>            
         </footer>

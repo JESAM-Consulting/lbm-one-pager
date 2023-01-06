@@ -64,3 +64,13 @@ $bp: (
     padding: 0 30px;
   }
 }
+
+.container-lg {
+  max-width: calc(1334px + 40px);
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include breakpoint("max-sm") {
+    padding: 0 30px;
+  }
+}
