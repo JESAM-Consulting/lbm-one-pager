@@ -68,6 +68,9 @@ line-height: 22px;
                     font-size: 10px;
 line-height: 15px;
                 }
+                @include breakpoint("max-sm") {
+                    max-width: 301px;
+                }
             }
         }
     }

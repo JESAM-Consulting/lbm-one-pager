@@ -8,10 +8,12 @@ export default function JetztSection() {
                     <h4>Jetzt bewerben und die Branche verändern.</h4>
                     <p>FE Finance GmbH</p>
                     <div className='button-center-alignment'>
-                        <button>Jetzt bewerben <br />
-                            <span>(ohne Lebenslauf in 30 Sek.)</span>
+                        <a href="#form">
+                            <button>Jetzt bewerben <br />
+                                <span>(ohne Lebenslauf in 30 Sek.)</span>
 
-                        </button>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

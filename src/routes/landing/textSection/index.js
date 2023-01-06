@@ -62,7 +62,7 @@ export default function TextSection() {
                                 <div className='sub-grid-items'>
                                     <p>Dein Erfolg ist der Deiner Mandanten</p>
                                     <span>
-                                        Unser Beratungsansatz ist nicht nur auf die Finanzdienstleistung limitiert, sondern bildet unseren Mandanten auch beispielsweise im Bereich Karriereentwicklung, Jobvermittlung und 
+                                        Unser Beratungsansatz ist nicht nur auf die Finanzdienstleistung limitiert, sondern bildet unseren Mandanten auch beispielsweise im Bereich Karriereentwicklung, Jobvermittlung und
                                         Energieberatung einen absoluten Mehrwert. Das Ganze wird unsererseits durch Premiumpartner am Markt sichergestellt.
                                     </span>
                                 </div>
@@ -70,10 +70,13 @@ export default function TextSection() {
                         </div>
                     </div>
                     <div className='button-center-alignment'>
-                    <button>Jetzt bewerben <br/>
-<span>(ohne Lebenslauf in 30 Sek.)</span>
+                    <a href="#form">
+                        <button>Jetzt bewerben <br />
+                            <span>(ohne Lebenslauf in 30 Sek.)</span>
 
-                            </button>
+                        </button>
+                        </a>
+
                     </div>
                 </div>
             </div>

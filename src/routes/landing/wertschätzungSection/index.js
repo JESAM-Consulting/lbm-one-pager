@@ -6,6 +6,7 @@ import HomeIcon from "../../../assets/icons/lg-home.svg";
 import LocationIcon from "../../../assets/icons/lg-location.svg";
 import XmldIcon from "../../../assets/icons/xmld.svg";
 import DinIcon from "../../../assets/icons/din.svg";
+import InformationArrow from "../../../assets/icons/information-arrow.svg";
 import { NavLink, useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { ApiPost } from "../../../helpers/API/ApiData";
@@ -100,7 +101,7 @@ export default function WertschätzungSection() {
   return (
     <div>
       <ToastContainer />
-      <div className="wertschätzung-section-all-content-alignment">
+      <div className="wertschätzung-section-all-content-alignment" id="form">
         <div className="container">
           <div className="box">
             <div className="box-header-alignment">
@@ -116,7 +117,7 @@ export default function WertschätzungSection() {
               </div>
             </div>
 
-            <div className="grid">
+            <div className="grid" id="form">
               <div className="grid-items">
                 <div className="all-input-style-box-design">
                   <div className="input select-width">
@@ -259,6 +260,12 @@ export default function WertschätzungSection() {
                       Bewerbung absenden
                     </button>
                     {/* </NavLink> */}
+                  </div>
+                  <div className="mobile-view-information-set">
+                    <p>WEITERE  INFORMATIONEN</p>
+                    <div className="information-arrow-design">
+                      <img src={InformationArrow} alt="InformationArrow"/>
+                    </div>
                   </div>
                 </div>
               </div>
